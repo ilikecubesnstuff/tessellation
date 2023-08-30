@@ -6,7 +6,8 @@ import numpy as np
 import pytest
 
 import tessellation
-from tessellation import LowDimensionalityException, Tessellation
+from tessellation import Tessellation
+from tessellation.exceptions import LowDimensionalityException
 
 rng = np.random.default_rng(0)
 
