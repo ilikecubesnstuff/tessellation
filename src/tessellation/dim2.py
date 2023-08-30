@@ -8,10 +8,10 @@ try:
 except ImportError:
     PLOTTING = False
 
-from .generic import TessellationGeneric
+from .base import TessellationBase
 
 
-class Tessellation2D(TessellationGeneric):
+class Tessellation2D(TessellationBase):
     @staticmethod
     def simplex_sides(*vertices):
         v1, v2, v3 = vertices

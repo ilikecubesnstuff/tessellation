@@ -10,10 +10,10 @@ except ImportError:
 
 from scipy import linalg, spatial
 
-from .generic import TessellationGeneric
+from .base import TessellationBase
 
 
-class Tessellation3D(TessellationGeneric):
+class Tessellation3D(TessellationBase):
     @staticmethod
     def simplex_sides(*vertices):
         v1, v2, v3, v4 = vertices
