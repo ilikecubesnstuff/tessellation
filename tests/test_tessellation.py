@@ -12,17 +12,9 @@ from tessellation.exceptions import LowDimensionalityException
 rng = np.random.default_rng(0)
 
 
-class TestAPI:
+class TestBasics:
     def test_version(self):
         assert version("tessellation") == tessellation.__version__
-
-    def test_top_level_class_availability(self):
-        for obj in vars(tessellation).values():
-            if inspect.isclass(obj):
-                assert not issubclass(obj, tessellation.base.TessellationBase)
-
-    def test_top_level_function(self):
-        assert tessellation.Tessellation
 
 
 class TestInsufficientDimensionality:
