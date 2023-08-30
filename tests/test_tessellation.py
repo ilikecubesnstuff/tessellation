@@ -1,19 +1,24 @@
+import inspect
 import math
+from importlib.metadata import version
 
 import numpy as np
 import pytest
 
-from tessellation import LowDimensionalityException, Tessellation
-
-from importlib.metadata import version
 import tessellation
+from tessellation import LowDimensionalityException, Tessellation
 
 rng = np.random.default_rng(0)
 
-class TestAPI:
 
+class TestAPI:
     def test_version(self):
-        assert version('tessellation') == tessellation.__version__
+        assert version("tessellation") == tessellation.__version__
+
+    def test_top_level_class_availability(self):
+        for obj in vars(tessellation).values():
+            if inspect.isclass(obj):
+                assert not issubclass(obj, tessellation.base.TessellationBase)
 
 
 class TestInsufficientDimensionality:
