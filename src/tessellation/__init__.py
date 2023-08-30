@@ -1,9 +1,10 @@
 from __future__ import annotations
 from typing import Any, Optional
 
+import inspect
+
 import numpy as np
 
-from ..utils import get_top_level_package
 from .base import TessellationBase as _TessType
 from .dim2 import Tessellation2D as _Tess2D
 from .dim3 import Tessellation3D as _Tess3D
@@ -21,10 +22,15 @@ def Tessellation(orbit_or_point_array: Any,
                  qhull_options: Optional[str] = None,
                  axis_ratio: float = 10,
                  normalization_routine: str = 'default',
-                 verbosity: int = 1,
+                 verbosity: int = 0,
                  ) -> _TessType:
     points = orbit = orbit_or_point_array
-    pkg = get_top_level_package(orbit)
+
+    pkg = None
+    module = inspect.getmodule(orbit)
+    if module:
+        pkg, *_ = module.__name__.partition('.')
+
     if pkg in ('galpy', 'gala', 'agama'):
         orbit = orbit_or_point_array
         if dims_for_orbit is None:

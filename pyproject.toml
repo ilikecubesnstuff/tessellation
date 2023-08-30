@@ -1,0 +1,11 @@
+[project]
+name = "tessellation"
+version = "0.1.0"
+dependencies = [
+    "numpy",
+    "scipy",
+]
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling>=0.22", "hatch-vcs>=0.2"]
