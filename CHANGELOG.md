@@ -1,3 +1,9 @@
+## 0.2.4 (2023-08-30)
+
+### Fix
+
+- Remove erroneous test cases
+
 ## 0.2.3 (2023-08-30)
 
 ### Fix
