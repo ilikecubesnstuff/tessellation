@@ -26,6 +26,7 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
     - uses: psf/black@stable
+    # see https://github.com/isort/isort-action/issues/80
     # - uses: isort/isort-action@master
     - name: Install dependencies
       run: |

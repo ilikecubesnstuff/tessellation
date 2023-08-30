@@ -5,7 +5,15 @@ import pytest
 
 from tessellation import LowDimensionalityException, Tessellation
 
+from importlib.metadata import version
+import tessellation
+
 rng = np.random.default_rng(0)
+
+class TestAPI:
+
+    def test_version(self):
+        assert version('tessellation') == tessellation.__version__
 
 
 class TestInsufficientDimensionality:
