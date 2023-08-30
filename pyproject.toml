@@ -9,3 +9,18 @@ dependencies = [
 [build-system]
 build-backend = "hatchling.build"
 requires = ["hatchling>=0.22", "hatch-vcs>=0.2"]
+
+[tool.black]
+line-length = 100
+target-version = ["py38", "py39", "py310", "py311"]
+
+[tool.isort]
+profile = "black"
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "$version"
+version_scheme = "semver"
+version_provider = "pep621"
+update_changelog_on_bump = true
+major_version_zero = true
