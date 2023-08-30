@@ -21,6 +21,9 @@ class TestAPI:
             if inspect.isclass(obj):
                 assert not issubclass(obj, tessellation.base.TessellationBase)
 
+    def test_top_level_function(self):
+        assert tessellation.Tessellation
+
 
 class TestInsufficientDimensionality:
     @pytest.mark.parametrize(
